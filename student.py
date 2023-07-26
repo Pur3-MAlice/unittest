@@ -1,4 +1,5 @@
 from datetime import date, timedelta
+import requests
 
 class Student:
     """A student class as a base for method testing"""
@@ -29,9 +30,10 @@ class Student:
 
 
     def course_schedule(self):
-        response = requests.get(f"https://company.com/course-schedule/{self._last_name}/{self._first_name}")
-        
+        response = requests.get(
+            f"https://company.com/course-schedule/{self._last_name}/{self._first_name}")
+
         if response.ok:
-            return response.text 
+            return response.text
         else:
             return "Something went wrong"
